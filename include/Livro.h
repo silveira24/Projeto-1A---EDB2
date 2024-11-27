@@ -5,10 +5,10 @@ typedef struct Livro
 {
     int codigo;
     char titulo[50];
-    char autor[20];
-    char genero[10];
+    char autor[50];
+    char genero[30];
     int ano;
-    char editora[20];
+    char editora[30];
     int numPags; 
 } Livro;
 
