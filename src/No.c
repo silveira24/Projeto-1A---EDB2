@@ -18,6 +18,10 @@ No* criarNo(Livro* livro) {
 }
 
 void inserir_livro(No** raiz, Livro* livro) {
+    if (existeLivro(*raiz, livro)) {
+        printf("livro com mesmo código já existe no sistema\n");
+        return;
+    }
     if (*raiz == NULL) {
         *raiz = criarNo(livro);
     } else if (livro->codigo < (*raiz)->data->codigo) {
@@ -93,4 +97,17 @@ void liberar_arvore(No* raiz) {
 
     free(raiz->data);
     free(raiz);
+}
+
+int existeLivro(No* raiz, Livro* livro) {
+    if (raiz == NULL) {
+        return 0;
+    }
+
+    if (raiz->data->codigo == livro->codigo) {
+        return 1;
+    }
+
+    return (existeLivro(raiz->esquerdo, livro) || existeLivro(raiz->direito, livro));
+    
 }
