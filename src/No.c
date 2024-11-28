@@ -57,8 +57,7 @@ No* carregar_livros(char* nome_arquivo, No* raiz) {
     char genero[30];
     int ano;
     char editora[50];
-    int numPags; 
-    int cont = 1;
+    int numPags;
     while(fgets(linha, sizeof(linha), arquivo) != NULL) {
         int resultado = sscanf(linha, "%d,%49[^,],%49[^,],%29[^,],%d,%29[^,],%d", &codigo, titulo, autor, genero, &ano, editora, &numPags);
 
